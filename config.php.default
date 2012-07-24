@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Database Details
+ */
+$activeGroup = 'local';
+
+$db['local']['hostname'] = 'localhost';
+$db['local']['username'] = '';
+$db['local']['password'] = '';
+$db['local']['database'] = '';
+$db['local']['dbProvider'] = 'mysql';
+
+
+switch ($db[$activeGroup]['dbProvider']) {
+	case 'mysql':
+		$providerString = sprintf('mysql:host=%s;dbname=%s', $db[$activeGroup]['hostname'], $db[$activeGroup]['database']);
+		break;
+	
+	default:
+		$providerString = null;
+		break;
+}
+
+ORM::configure($providerString);
+ORM::configure('username', $db[$activeGroup]['username']);
+ORM::configure('password', $db[$activeGroup]['password']);

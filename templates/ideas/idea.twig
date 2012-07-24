@@ -1,0 +1,17 @@
+			<div id="idea-{{ idea.id }}" class="ideas">
+				<div class="left-content nine columns">
+					<h2>
+						{% if singleView == false %}
+						<a href="{{ urlFor('idea', {'id': idea.id}) }}">{{ idea.title }}</a>
+						{% else %}
+						{{ idea.title }}
+						{% endif %}
+					</h2>
+					<div class="content">{{ idea.content }}</div>
+					<div class="date">posted {{ idea.date }}</div>
+				</div>
+				<div class="right-content">
+					<h4>Rate my idea</h4>
+					{{ Ratings.bar(idea.id,'5') }}
+				</div>
+			</div>

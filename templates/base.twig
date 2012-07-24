@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Share My Ideas</title> 
+		<link rel="stylesheet" type="text/css" href="/assets/stylesheets/app.css" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<div id="header">
+				<div class="row">
+					<a href="/" id="logo"><span>Share my ideas</span></a>
+					<nav class="two columns offset-by-six">
+						<ul class="link-list">
+							{% if auth.isLoggedIn() %}
+							<li><a href="{{ urlFor('profile') }}">Account</a></li>
+							<li><a href="{{ urlFor('logout') }}">Logout</a></li>
+							{% else %}
+							<li><a href="{{ urlFor('login') }}">Login</a></li>
+							<li><a href="{{ urlFor('login') }}">Sign Up</a></li>
+							{% endif %}
+						</ul>
+					</nav>
+
+					<ul id="navigation" class="twelve columns">
+						<li><a href="/" class="active"><span>Home</span></a></li>
+						<li class="addyouridea"><a href="#addyouridea"><span>Add Your Idea</span></a></li>
+					</ul>
+				</div>
+			</div><!-- /header -->
+
+			<div class="row">
+				<div id="content">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div><!-- /.container -->
+
+		<script src="/assets/javascripts/libs/jquery.min.js" type="text/javascript"></script>  
+		<script src="/assets/javascripts/base.js" type="text/javascript"></script>
+	</body>
+</html>

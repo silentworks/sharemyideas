@@ -1,0 +1,48 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<div id="ideas">
+	{% if idea != '' %}
+		{% include 'ideas/idea.twig' %}
+	{% else %}
+		<h3>The idea you are looking for no longer exist or didn't exist before.</h3>
+	{% endif %}
+	</div>
+
+	{% if ideas != '' %}
+	<div class="sort-paginate">
+		<div class="sort">
+			Sort by: <a href="{{ urlFor('latest_ideas') }}">Latest</a> | <a href="{{ urlFor('mostrated_ideas') }}">Most Rated</a>
+		</div>
+		<div class="pagination">
+			{{ pagination }}
+		</div>
+	</div>
+	{% endif %}
+	<div id="addyouridea">
+		{% if auth.isLoggedIn() %}
+		<h3><span>Add your Comment</span></h3>
+		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
+			<p>
+				<label for="comment">Comment <em class="character">220 characters left</em></label>
+				<textarea id="comment" name="comment" rows="4" cols="40" class="size"></textarea>
+			</p>
+
+			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>
+		</form>
+		{% else %}
+			<form action="{{ urlFor('login') }}" method="post" accept-charset="utf-8" id="idea-form">
+			<p>
+				<label for="email">Email</label>
+				<input type="text" name="email" value="" id="email" class="size" />
+			</p>
+			<p>
+				<label for="password">Password</label>
+				<input type="password" name="password" value="" id="password" class="size" />
+			</p>
+
+			<div id="submit-holder"><input type="submit" value="Login" class="button" /></div>
+		</form>
+		{% endif %}
+	</div>
+{% endblock %}

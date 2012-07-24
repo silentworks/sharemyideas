@@ -1,0 +1,57 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% if ideas != '' %}
+	<div class="sort-paginate">
+		<div class="sort">
+			Sort by: <a href="{{ urlFor('latest_ideas') }}">Latest</a> | <a href="{{ urlFor('mostrated_ideas') }}">Most Rated</a>
+		</div>
+		<div class="pagination">
+			{{ pagination }}
+		</div>
+	</div>
+	{% endif %}
+	<div id="ideas">
+	{% if ideas != '' %}
+		{% for idea in ideas %}
+			{% include 'ideas/idea.twig' %}
+		{% endfor %}
+	{% else %}
+		<h3>There are currently no ideas Shared, C'mon be the first?</h3>
+	{% endif %}
+	</div>
+
+	{% if ideas != '' %}
+	<div class="sort-paginate">
+		<div class="sort">
+			Sort by: <a href="{{ urlFor('latest_ideas') }}">Latest</a> | <a href="{{ urlFor('mostrated_ideas') }}">Most Rated</a>
+		</div>
+		<div class="pagination">
+			{{ pagination }}
+		</div>
+	</div>
+	{% endif %}
+	{% if auth.isLoggedIn() %}
+	<div id="addyouridea">
+		<h3><span>Add your idea</span></h3>
+		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
+			<p>
+				<label for="email">Email</label>
+				<input type="text" name="email" value="" id="email" class="size" />
+			</p>
+			
+			<p>
+				<label for="title">Title <em class="character">120 characters left</em></label>
+				<input type="text" name="title" value="" id="title" class="size" />
+			</p>
+			
+			<p>
+				<label for="idea">Your idea <em class="character">320 characters left</em></label>
+				<textarea id="idea" name="idea" rows="4" cols="40" class="size"></textarea>
+			</p>
+
+			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>
+		</form>
+	</div>
+	{% endif %}
+{% endblock %}

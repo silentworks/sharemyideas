@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<div class="six columns centered">
+	<p>Please login to start viewing images in cheese</p>
+	<form action="{{ urlFor('forgot_password') }}" method="post">
+		<div class="row">
+			<div class="ten columns">
+				<input type="text" placeholder="Username" />
+			</div>
+
+			<div class="two columns">
+				<input class="small radius button" type="submit" value="Send">
+			</div>
+
+			<div class="twelve column">
+				<a href="{{ urlFor('login') }}">Login</a>
+			</div>
+		</div> 
+	</form>
+</div>
+{% endblock %}

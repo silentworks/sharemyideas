@@ -1,0 +1,19 @@
+{% extends 'base.twig' %}
+
+{% block js %}
+<!-- Core Asset Libraries -->
+	<script type="text/javascript" src="/assets/javascripts/libs/underscore.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/libs/backbone.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/libs/handlebars-1.0.0.beta.6.js"></script>
+
+<!-- Cheese Assets -->
+	<script type="text/javascript" src="/assets/javascripts/cheese/app.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/cheese/collections/photos.collection.js"></script>
+	<script type="text/javascript" src="/assets/javascripts/cheese/models/photo.model.js"></script>
+
+	<script type="text/javascript">
+		$('document').ready(function () {
+			Cheese.init();
+		});
+	</script>
+{% endblock %}

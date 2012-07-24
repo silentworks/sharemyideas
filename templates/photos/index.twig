@@ -1,0 +1,28 @@
+{% extends 'site.twig' %}
+
+{% block content %}
+<p>This is where the content will reside</p>
+{% endblock %}
+
+{% block jstmpl %}
+<!-- Albumn Template -->{% raw %}
+	<script id="albumn" type="text/x-handlebar">
+		<ul>
+			{{#each albumns}}
+			<li>{{ albumn.name }}</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<script id="photos" type="text/x-handlebar">
+		<ul>
+			<li>{{ name }}</li>
+		</ul>
+	</script>
+
+	<script id="photo" type="text/x-handlebar">
+		<h1>{{ name }}</h1>
+		<p>{{ description }}</p>
+	</script>
+{% endraw %}
+{% endblock %}
