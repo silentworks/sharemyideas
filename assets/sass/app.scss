@@ -126,18 +126,34 @@ body {
 	}
 }
 
+#notification {
+	margin: 20px 0 10px;
+}
 
+#content {
+	.block {
+		background-color: #faf6ef;
+		border: 10px solid #ebdec6;
+		padding: 10px;
+		h2 {
+			font-size: 20px;
+			font-weight: normal;
+		}
+	}
+	.account-block {
+		margin-top: 60px;
+		padding: 0;
+	}
+}
 #content #ideas {
-	.ideas {
-		background: #faf6ef url(../images/idea_panel_bg.gif) repeat-y scroll 0 0;
+	.idea {
+		background-color: #faf6ef;
 		border: 10px solid #ebdec6;
 		float: left;
 		margin: 0 0 8px;
 		.left-content {
 			color: #333;
-			float: left;
 			padding: 31px 33px 22px 16px;
-			width: 650px;
 			h2 a {
 				color: #124D46;
 				text-decoration: none;
@@ -155,43 +171,28 @@ body {
 			}
 		}
 		.right-content {
-			float: left;
 			font-size: 0.9em;
 			padding: 31px 11px 22px 30px;
-			width: 200px;
-			h4, h4 a {
-				color: #705f4b; 
-				font-family: Arial, "MS Trebuchet", sans-serif;
-				font-size: 1.7em;
-				font-weight: bold;
-				margin: 0 0 18px;
-				padding: 0;
+			h4 {
+				font-size: 1.2em;
+				margin: 0 0 10px
 			}
 			p {
 				font-size: 0.85em;
 			}
 		}
+		.left-content h2, 
+		.right-content h4,
+		.right-content h4 a { 
+			color: #705f4b;
+			font-family: Arial, "MS Trebuchet", sans-serif;
+			font-size: 1.7em;
+			font-weight: bold; 
+			margin: 0 0 18px; 
+			padding: 0;
+		}
 	}
 }
-
-#content #ideas .ideas .left-content h2, 
-#content #ideas .ideas .right-content h4,
-#content #ideas .ideas .right-content h4 a { color: #705f4b; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 1.7em; font-weight: bold; margin: 0 0 18px; padding: 0; }
-
-#content #ideas .ideas .unit-rating { height: 50px; position: relative; background: transparent url('../images/bulbrating.gif') top left repeat-x; }
-#content #ideas .ideas .unit-rating li a { width: 37px; height: 50px; }
-#content #ideas div.ideas .unit-rating li a:hover { background: url('../images/bulbrating.gif') left center; left: 0; }
-#content #ideas div.ideas .unit-rating li.current-rating { background: url('../images/bulbrating.gif') left bottom; height: 50px; }
-#content #ideas div.ideas .unit-rating a.r1-unit { left: 0px; }
-#content #ideas div.ideas .unit-rating a.r1-unit:hover { width: 37px; }
-#content #ideas div.ideas .unit-rating a.r2-unit { left: 37px; }
-#content #ideas div.ideas .unit-rating a.r2-unit:hover { width: 74px; }
-#content #ideas div.ideas .unit-rating a.r3-unit { left: 74px; }
-#content #ideas div.ideas .unit-rating a.r3-unit:hover { width: 111px; }
-#content #ideas div.ideas .unit-rating a.r4-unit { left: 111px; }
-#content #ideas div.ideas .unit-rating a.r4-unit:hover { width: 148px; }
-#content #ideas div.ideas .unit-rating a.r5-unit { left: 148px; }
-#content #ideas div.ideas .unit-rating a.r5-unit:hover { width: 185px; }
 
 /* Form */
 #addyouridea { 

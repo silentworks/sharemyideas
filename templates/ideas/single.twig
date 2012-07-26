@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends 'site.twig' %}
 
 {% block content %}
 	<div id="ideas">
@@ -25,7 +25,7 @@
 		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
 			<p>
 				<label for="comment">Comment <em class="character">220 characters left</em></label>
-				<textarea id="comment" name="comment" rows="4" cols="40" class="size"></textarea>
+				<textarea id="comment" name="comment" rows="4" cols="30"></textarea>
 			</p>
 
 			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>
@@ -34,11 +34,11 @@
 			<form action="{{ urlFor('login') }}" method="post" accept-charset="utf-8" id="idea-form">
 			<p>
 				<label for="email">Email</label>
-				<input type="text" name="email" value="" id="email" class="size" />
+				<input type="text" name="email" value="" id="email" />
 			</p>
 			<p>
 				<label for="password">Password</label>
-				<input type="password" name="password" value="" id="password" class="size" />
+				<input type="password" name="password" value="" id="password" />
 			</p>
 
 			<div id="submit-holder"><input type="submit" value="Login" class="button" /></div>

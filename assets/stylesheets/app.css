@@ -949,45 +949,22 @@ body { background: #fbf6ef url(../images/background.jpg) no-repeat scroll 50% 0;
 #content .sort-paginate .pagination { float: right; }
 #content .sort-paginate .pagination strong, #content .sort-paginate .pagination a { background-color: #fff; border: 1px solid #705f4b; color: #705f4b; padding: 5px 10px; text-decoration: none; }
 
-#content #ideas .ideas { background: #faf6ef url(../images/idea_panel_bg.gif) repeat-y scroll 0 0; border: 10px solid #ebdec6; float: left; margin: 0 0 8px; }
-#content #ideas .ideas .left-content { color: #333; float: left; padding: 31px 33px 22px 16px; width: 650px; }
-#content #ideas .ideas .left-content h2 a { color: #124D46; text-decoration: none; }
-#content #ideas .ideas .left-content h2 a:hover { text-decoration: underline; }
-#content #ideas .ideas .left-content .content { margin: 0; padding: 0 0 10px; }
-#content #ideas .ideas .left-content .date { color: #777; font-size: 0.85em; }
-#content #ideas .ideas .right-content { float: left; font-size: 0.9em; padding: 31px 11px 22px 30px; width: 200px; }
-#content #ideas .ideas .right-content h4, #content #ideas .ideas .right-content h4 a { color: #705f4b; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 1.7em; font-weight: bold; margin: 0 0 18px; padding: 0; }
-#content #ideas .ideas .right-content p { font-size: 0.85em; }
+#notification { margin: 20px 0 10px; }
 
-#content #ideas .ideas .left-content h2, #content #ideas .ideas .right-content h4, #content #ideas .ideas .right-content h4 a { color: #705f4b; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 1.7em; font-weight: bold; margin: 0 0 18px; padding: 0; }
+#content .block { background-color: #faf6ef; border: 10px solid #ebdec6; padding: 10px; }
+#content .block h2 { font-size: 20px; font-weight: normal; }
+#content .account-block { margin-top: 60px; padding: 0; }
 
-#content #ideas .ideas .unit-rating { height: 50px; position: relative; background: transparent url("../images/bulbrating.gif") top left repeat-x; }
-
-#content #ideas .ideas .unit-rating li a { width: 37px; height: 50px; }
-
-#content #ideas div.ideas .unit-rating li a:hover { background: url("../images/bulbrating.gif") left center; left: 0; }
-
-#content #ideas div.ideas .unit-rating li.current-rating { background: url("../images/bulbrating.gif") left bottom; height: 50px; }
-
-#content #ideas div.ideas .unit-rating a.r1-unit { left: 0px; }
-
-#content #ideas div.ideas .unit-rating a.r1-unit:hover { width: 37px; }
-
-#content #ideas div.ideas .unit-rating a.r2-unit { left: 37px; }
-
-#content #ideas div.ideas .unit-rating a.r2-unit:hover { width: 74px; }
-
-#content #ideas div.ideas .unit-rating a.r3-unit { left: 74px; }
-
-#content #ideas div.ideas .unit-rating a.r3-unit:hover { width: 111px; }
-
-#content #ideas div.ideas .unit-rating a.r4-unit { left: 111px; }
-
-#content #ideas div.ideas .unit-rating a.r4-unit:hover { width: 148px; }
-
-#content #ideas div.ideas .unit-rating a.r5-unit { left: 148px; }
-
-#content #ideas div.ideas .unit-rating a.r5-unit:hover { width: 185px; }
+#content #ideas .idea { background-color: #faf6ef; border: 10px solid #ebdec6; float: left; margin: 0 0 8px; }
+#content #ideas .idea .left-content { color: #333; padding: 31px 33px 22px 16px; }
+#content #ideas .idea .left-content h2 a { color: #124D46; text-decoration: none; }
+#content #ideas .idea .left-content h2 a:hover { text-decoration: underline; }
+#content #ideas .idea .left-content .content { margin: 0; padding: 0 0 10px; }
+#content #ideas .idea .left-content .date { color: #777; font-size: 0.85em; }
+#content #ideas .idea .right-content { font-size: 0.9em; padding: 31px 11px 22px 30px; }
+#content #ideas .idea .right-content h4 { font-size: 1.2em; margin: 0 0 10px; }
+#content #ideas .idea .right-content p { font-size: 0.85em; }
+#content #ideas .idea .left-content h2, #content #ideas .idea .right-content h4, #content #ideas .idea .right-content h4 a { color: #705f4b; font-family: Arial, "MS Trebuchet", sans-serif; font-size: 1.7em; font-weight: bold; margin: 0 0 18px; padding: 0; }
 
 /* Form */
 #addyouridea { background-color: #fff; border: 10px solid #ebdec6; float: left; margin: 0 0 20px; padding: 16px 16px 11px; width: 658px; }

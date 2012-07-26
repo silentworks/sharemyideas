@@ -18,6 +18,23 @@ class LoginController extends Controller {
 		$this->render('login/index');
 	}
 
+	public function signup()
+	{
+		if ($this->app->request()->isPost()) {
+			$u = Model::factory('Users')->create();
+			$u->name = $this->post('name');
+			$u->email = $this->post('email');
+			$u->username = $this->post('username');
+			$u->password = $this->auth->getProvider()->hashPassword($this->post('password'));
+			$u->ip_address = $this->app->request()->getIp();
+			$u->save();
+			
+			$this->app->flash('info', 'Your registration was successfull');
+			$this->redirect('home');
+		}
+		$this->render('login/signup');
+	}
+
 	public function logout()
 	{
 		$this->app->flash('info', 'Come back sometime soon');

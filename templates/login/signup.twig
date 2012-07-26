@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<div class="account-block six columns">
+	<p>Please login to start adding Ideas and Comments</p>
+	{% if flash.info %}<div class="alert-box success">{{ flash.info }}</div>{% endif %}
+	{% if flash.error %}<div class="alert-box alert">{{ flash.error }}</div>{% endif %}
+	<form action="{{ urlFor('signup') }}" method="post">
+		<div class="row">
+			<div class="twelve columns">
+				<input id="name" name="name" type="text" placeholder="Name" />
+			</div>
+
+			<div class="twelve columns">
+				<input id="email" name="email" type="text" placeholder="Email" />
+			</div>
+
+			<div class="twelve columns">
+				<input id="username" name="username" type="text" placeholder="Username" />
+			</div>
+
+			<div class="nine columns">
+				<input id="password" name="password" type="password" placeholder="Password" />
+			</div>
+
+			<div class="two columns">
+				<input class="small radius button" type="submit" value="Register">
+			</div>
+
+			<div class="twelve column">
+				<a href="{{ urlFor('forgot_password') }}">Forgot your password?</a>
+			</div>
+		</div> 
+	</form>
+</div>
+{% endblock %}

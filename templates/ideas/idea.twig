@@ -1,4 +1,4 @@
-			<div id="idea-{{ idea.id }}" class="ideas">
+			<div id="idea-{{ idea.id }}" class="idea">
 				<div class="left-content nine columns">
 					<h2>
 						{% if singleView == false %}
@@ -10,7 +10,7 @@
 					<div class="content">{{ idea.content }}</div>
 					<div class="date">posted {{ idea.date }}</div>
 				</div>
-				<div class="right-content">
+				<div class="right-content three columns">
 					<h4>Rate my idea</h4>
 					{{ Ratings.bar(idea.id,'5') }}
 				</div>
