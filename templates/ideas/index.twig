@@ -31,23 +31,18 @@
 		</div>
 	</div>
 	{% endif %}
-	{% if auth.isLoggedIn() %}
+	{% if auth.loggedIn() %}
 	<div id="addyouridea">
 		<h3><span>Add your idea</span></h3>
 		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
 			<p>
-				<label for="email">Email</label>
-				<input type="text" name="email" value="" id="email" class="size" />
-			</p>
-			
-			<p>
 				<label for="title">Title <em class="character">120 characters left</em></label>
-				<input type="text" name="title" value="" id="title" class="size" />
+				<input type="text" name="title" value="" id="title" />
 			</p>
 			
 			<p>
 				<label for="idea">Your idea <em class="character">320 characters left</em></label>
-				<textarea id="idea" name="idea" rows="4" cols="40" class="size"></textarea>
+				<textarea id="idea" name="idea" class="size"></textarea>
 			</p>
 
 			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>

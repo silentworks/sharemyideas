@@ -7,6 +7,10 @@ abstract class Controller extends Application {
 	{
 		$this->app = Slim::getInstance();
 		$this->auth = Strong::getInstance();
+
+		if ($this->auth->loggedIn()) {
+			$this->user = $this->auth->getUser();
+		}
 	}
 
 	public function redirect($name, $routeName = true)

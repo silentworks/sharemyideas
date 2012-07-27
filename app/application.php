@@ -27,7 +27,7 @@ class Application {
 			  `name` varchar(180) DEFAULT NULL,
 			  `email` varchar(220) DEFAULT NULL,
 			  `ip_address` varchar(16) NOT NULL,
-			  `display` int(11) DEFAULT '0',
+			  `active` int(11) DEFAULT '0',
 			  PRIMARY KEY (`id`)
 			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 		");
@@ -37,10 +37,10 @@ class Application {
 			CREATE TABLE IF NOT EXISTS `ideas` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT,
 			  `title` varchar(120) DEFAULT NULL,
-			  `email` varchar(60) DEFAULT NULL,
 			  `content` text,
 			  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			  `ip_address` varchar(16) NOT NULL,
+			  `user_id` int(11) NOT NULL,
 			  `display` int(11) DEFAULT '1',
 			  PRIMARY KEY (`id`)
 			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

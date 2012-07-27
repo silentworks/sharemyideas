@@ -219,27 +219,25 @@ body {
 				font-style: normal;
 			}
 		}
-		input.size,
 		textarea.size { 
-			border: 1px solid #766552;
 			padding: 5px;
-			width: 646px;
+			height: 90px;
 		}
-		#submit-holder {
-			float: right;
-			padding: 10px 0 0;
-			.button { 
-				background: #000000 url(../images/assets.png) no-repeat scroll -117px -251px;
-				border: 1px solid #766552;
-				color: #9F872D;
-				cursor: pointer;
-				font-size: 0.7em;
-				font-weight: bold;
-				padding: 6px 8px;
-				height: 28px;
-				text-indent: -999px;
-				width: 94px;
-			}
+	}
+	#submit-holder {
+		float: right;
+		padding: 10px 0 0;
+		input[type="submit"].button { 
+			background: #000000 url(../images/assets.png) no-repeat scroll -117px -251px;
+			border: 1px solid #766552;
+			color: #9F872D;
+			cursor: pointer;
+			font-size: 0.7em;
+			font-weight: bold;
+			padding: 6px 8px;
+			height: 28px;
+			text-indent: -999px;
+			width: 94px;
 		}
 	}
 }

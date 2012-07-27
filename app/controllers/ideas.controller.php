@@ -27,8 +27,8 @@ class IdeasController extends Controller {
 			$p = $req->post();
 			$idea = Model::factory('Ideas')->create();
 			$idea->title = $p['title'];
-			$idea->email = $p['email'];
 			$idea->content = $p['idea'];
+			$idea->user_id = $this->user['id'];
 			$idea->ip_address = $req->getIp();
 			$id = $idea->save();
 			if ($id) {
@@ -37,6 +37,8 @@ class IdeasController extends Controller {
 			$this->app->flashNow('error', 'Your idea was not saved.');
 			$this->redirect('home');
 		}
+
+		$this->render('ideas/idea');
 	}
 
 	public function allIdeas()

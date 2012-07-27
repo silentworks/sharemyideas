@@ -972,6 +972,6 @@ body { background: #fbf6ef url(../images/background.jpg) no-repeat scroll 50% 0;
 #addyouridea h3 span { display: none; }
 #addyouridea form p label { float: left; width: 100%; }
 #addyouridea form p label em.character { float: right; font-style: normal; }
-#addyouridea form p input.size, #addyouridea form p textarea.size { border: 1px solid #766552; padding: 5px; width: 646px; }
-#addyouridea form p #submit-holder { float: right; padding: 10px 0 0; }
-#addyouridea form p #submit-holder .button { background: black url(../images/assets.png) no-repeat scroll -117px -251px; border: 1px solid #766552; color: #9F872D; cursor: pointer; font-size: 0.7em; font-weight: bold; padding: 6px 8px; height: 28px; text-indent: -999px; width: 94px; }
+#addyouridea form p textarea.size { padding: 5px; height: 90px; }
+#addyouridea #submit-holder { float: right; padding: 10px 0 0; }
+#addyouridea #submit-holder input[type="submit"].button { background: black url(../images/assets.png) no-repeat scroll -117px -251px; border: 1px solid #766552; color: #9F872D; cursor: pointer; font-size: 0.7em; font-weight: bold; padding: 6px 8px; height: 28px; text-indent: -999px; width: 94px; }
