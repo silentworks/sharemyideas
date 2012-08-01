@@ -1,11 +1,10 @@
 <?php
 
 abstract class Controller extends Application {
-	public $app;
 
 	public function __construct()
 	{
-		$this->app = Slim::getInstance();
+		parent::__construct();
 		$this->auth = Strong::getInstance();
 
 		if ($this->auth->loggedIn()) {

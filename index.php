@@ -26,6 +26,10 @@ $app = new Slim(array(
 
 // Authentication
 $config = array(
+    'provider' => 'PDO',
+    'dsn' => sprintf('mysql:host=%s;dbname=%s', $db[$activeGroup]['hostname'], $db[$activeGroup]['database']),
+    'dbuser' => $db[$activeGroup]['username'],
+    'dbpass' => $db[$activeGroup]['password'],
     'auth.type' => 'form',
     'login.url' => '/login',
     'security.urls' => array(
@@ -35,15 +39,7 @@ $config = array(
     ),
 );
 
-$authConfig = array(
-    'provider' => 'PDO',
-    'dsn' => sprintf('mysql:host=%s;dbname=%s', $db[$activeGroup]['hostname'], $db[$activeGroup]['database']),
-    'dbuser' => $db[$activeGroup]['username'],
-    'dbpass' => $db[$activeGroup]['password'],
-);
-
-$strong = new Strong($authConfig);
-$app->add(new Middleware_Auth_Strong($config, $strong));
+$app->add(new Middleware_Auth_Strong($config));
 
 // Asset Management
 $app->view()->twigExtensions = array(

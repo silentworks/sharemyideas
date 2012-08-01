@@ -19,8 +19,8 @@
 		</div>
 	</div>
 	{% endif %}
+	{% if auth.isLoggedIn() %}
 	<div id="addyouridea">
-		{% if auth.isLoggedIn() %}
 		<h3><span>Add your Comment</span></h3>
 		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
 			<p>
@@ -30,19 +30,6 @@
 
 			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>
 		</form>
-		{% else %}
-			<form action="{{ urlFor('login') }}" method="post" accept-charset="utf-8" id="idea-form">
-			<p>
-				<label for="email">Email</label>
-				<input type="text" name="email" value="" id="email" />
-			</p>
-			<p>
-				<label for="password">Password</label>
-				<input type="password" name="password" value="" id="password" />
-			</p>
-
-			<div id="submit-holder"><input type="submit" value="Login" class="button" /></div>
-		</form>
-		{% endif %}
 	</div>
+	{% endif %}
 {% endblock %}

@@ -3,9 +3,9 @@
 class Application {
 	public $app;
 
-	public function __construct(Slim $slim)
+	public function __construct(Slim $slim = null)
 	{
-		$this->app = $slim;
+		$this->app = !empty($slim) ? $slim : Slim::getInstance();
 
 		/*
 		 * ORM

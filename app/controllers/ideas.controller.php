@@ -1,11 +1,7 @@
 <?php
 
 class IdeasController extends Controller {
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
+	
 	public function index()
 	{
 		$data['ideas'] = Model::factory('Ideas')->order_by_asc('id')->find_many();
