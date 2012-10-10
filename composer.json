@@ -24,11 +24,13 @@
         }
     ],
     "require": {
-    	"slim/slim": "1.6.*"
-    	,"slim/extras": "dev-release-1.0.3"
+    	"slim/slim": "2.0.*"
+    	,"slim/extras": "dev-develop"
     	,"slim/strong": "dev-master"
         ,"twig/twig": "1.8.*"
         ,"jamie/paris": "1.0.*"
         ,"jamie/idiorm": "1.0.*"
+        ,"respect/validation": "dev-develop"
+        ,"symfony/yaml": "v2.0.16"
     }
 }

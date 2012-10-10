@@ -20,8 +20,12 @@ define('APPLICATION', 'Share My Ideas');
 define('VERSION', '1.0.0');
 define('EXT', '.twig');
 
+use Slim\Slim;
+use Slim\Extras\Views\Twig as TwigView;
+use Slim\Extras\Middleware\StrongAuth;
+
 $app = new Slim(array(
-	'view' => 'View_Twig',
+	'view' => new TwigView,
 ));
 
 // Authentication
@@ -39,10 +43,10 @@ $config = array(
     ),
 );
 
-$app->add(new Middleware_Auth_Strong($config));
+$app->add(new StrongAuth($config, new Strong($config)));
 
 // Asset Management
-$app->view()->twigExtensions = array(
+TwigView::$twigExtensions = array(
     'Twig_Extensions_Slim',
 );
 

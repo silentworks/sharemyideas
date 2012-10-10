@@ -1,15 +1,38 @@
 <?php
+// Validation Library
+use Respect\Validation\Validator as v;	
 
 class LoginController extends Controller {
-	
+
 	public function index()
 	{
 		if ($this->app->request()->isPost()) {
-			if ($this->auth->login($this->post('username'), $this->post('password'))) {
-				$this->app->flash('info', 'Your login was successfull');
-				$this->redirect('home');
-			}
-			$this->app->flashNow('error', 'Username or Password incorrect.');
+            try {
+                v::alnum()->setName('Username')
+                    ->noWhitespace()
+					->length(4,22)
+                    ->check($this->post('username'));
+
+                v::alnum()
+                	->length(3,11)
+                	->check($this->post('password'));
+            } catch (\InvalidArgumentException $e) {
+                $this->app->flashNow('error', $e->getMainMessage());
+            }
+
+        	/*if ($v_user->validate($this->post('username'))) {
+                if ($v_pass->validate($this->post('password'))) {
+                    if ($this->auth->login($this->post('username'), $this->post('password'))) {
+                        $this->app->flash('info', 'Your login was successfull');
+                        $this->redirect('home');
+                    }
+                    $this->app->flash('error', 'Username or Password incorrect.');
+                }
+                $this->app->flashNow('error', 'The password you entered cannot be empty');
+        	}
+            else {
+            	$this->app->flashNow('error', 'The username you entered needs to be at least 3 in length');
+            }*/
 		}
 		$this->render('login/index');
 	}

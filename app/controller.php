@@ -25,7 +25,15 @@ abstract class Controller extends Application {
 
 	public function post($value = null)
 	{
-		return $this->app->request()->post($value);
+		$post = $this->app->request()->post($value);
+        if (empty($value)) {
+            $p = new stdClass;
+            foreach ($post as $pt => $value) {
+                $p->$pt = $value;
+            }
+            $post = $p;
+        }
+        return $post;
 	}
 
 	public function response($body)

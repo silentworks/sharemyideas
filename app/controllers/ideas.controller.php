@@ -2,7 +2,7 @@
 
 class IdeasController extends Controller {
 	
-	public function index()
+	public function index($order = null)
 	{
 		$data['ideas'] = Model::factory('Ideas')->order_by_asc('id')->find_many();
 		$this->render('ideas/index', $data);
@@ -26,8 +26,8 @@ class IdeasController extends Controller {
 			$idea->content = $p['idea'];
 			$idea->user_id = $this->user['id'];
 			$idea->ip_address = $req->getIp();
-			$id = $idea->save();
-			if ($id) {
+			if ($idea->save()) {
+				$this->app->flash('info', sprintf('You have successfully saved %s', $idea->id()));
 				$this->redirect('home');
 			}
 			$this->app->flashNow('error', 'Your idea was not saved.');
