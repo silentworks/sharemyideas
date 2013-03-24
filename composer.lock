@@ -1,0 +1,298 @@
+{
+    "hash": "d2407a16f581a89bf03c21534adc7700",
+    "packages": [
+        {
+            "name": "gabordemooij/redbean",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabordemooij/redbean.git",
+                "reference": "2cfb3f90c551307ba670197eb3cfa34af51e67af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/2cfb3f90c551307ba670197eb3cfa34af51e67af",
+                "reference": "2cfb3f90c551307ba670197eb3cfa34af51e67af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "RedBean_": ""
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabordemooij@gmail.com",
+                    "homepage": "http://www.redbeanphp.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy ORM for PHP",
+            "homepage": "http://github.com/gabordemooij/redbean",
+            "keywords": [
+                "Object Relational Mapping",
+                "orm"
+            ],
+            "time": "2013-03-23 12:52:33"
+        },
+        {
+            "name": "slim/extras",
+            "version": "2.0.3",
+            "target-dir": "Slim/Extras",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Slim-Extras",
+                "reference": "2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/codeguy/Slim-Extras/archive/2.0.3.zip",
+                "reference": "2.0.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "slim/slim": ">=2.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twig_Extensions_": "Views/Extension/",
+                    "Slim\\Extras": "."
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://www.silentworks.co.uk/"
+                },
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "http://www.joshlockhart.com/"
+                }
+            ],
+            "description": "Extras package for the Slim Framework",
+            "homepage": "http://github.com/codeguy/Slim-Extras",
+            "keywords": [
+                "extensions",
+                "middleware",
+                "templating"
+            ],
+            "time": "2013-01-07 17:56:10"
+        },
+        {
+            "name": "slim/slim",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Slim",
+                "reference": "2.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/codeguy/Slim/zipball/2.1.0",
+                "reference": "2.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Slim": "."
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "http://www.joshlockhart.com/"
+                }
+            ],
+            "description": "Slim Framework, a PHP micro framework",
+            "homepage": "http://github.com/codeguy/Slim",
+            "keywords": [
+                "microframework",
+                "rest",
+                "router"
+            ],
+            "time": "2012-09-12 09:07:46"
+        },
+        {
+            "name": "slim/strong",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silentworks/Strong",
+                "reference": "1af2dc2f49f14521bda280a3b91c8fef54f67fc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/silentworks/Strong/archive/1af2dc2f49f14521bda280a3b91c8fef54f67fc0.zip",
+                "reference": "1af2dc2f49f14521bda280a3b91c8fef54f67fc0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Strong": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Smith",
+                    "email": "a.smith@silentworks.co.uk",
+                    "homepage": "http://www.silentworks.co.uk/"
+                },
+                {
+                    "name": "Jakub Westfalewski",
+                    "email": "jwest@jwest.pl",
+                    "homepage": "http://jwest.pl/"
+                }
+            ],
+            "description": "Authentication Library with multiple drivers",
+            "homepage": "http://github.com/silentworks/Strong",
+            "keywords": [
+                "Authentication",
+                "extensions"
+            ],
+            "time": "2012-12-31 10:57:13"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.8.3",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fabpot/Twig.git",
+                "reference": "v1.8.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/fabpot/Twig/zipball/v1.8.3",
+                "reference": "v1.8.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2012-06-17 11:48:16"
+        },
+        {
+            "name": "vlucas/valitron",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/valitron.git",
+                "reference": "v1.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/valitron/zipball/v1.0.3",
+                "reference": "v1.0.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Valitron": "src/"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Simple, elegant, stand-alone validation library with NO dependencies",
+            "homepage": "http://github.com/vlucas/valitron",
+            "keywords": [
+                "valid",
+                "validation",
+                "validator"
+            ],
+            "time": "2013-03-06 00:01:35"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "slim/strong": 20,
+        "gabordemooij/redbean": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

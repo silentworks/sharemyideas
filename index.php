@@ -1,7 +1,5 @@
 <?php
 require_once "vendor/autoload.php";
-require_once 'vendor/jamie/idiorm/idiorm.php';
-require_once 'vendor/jamie/paris/paris.php';
 
 require_once "config.php";
 require_once "app/application.php";
@@ -11,29 +9,24 @@ require_once "app/controller.php";
 require_once "app/controllers/login.controller.php";
 require_once "app/controllers/ideas.controller.php";
 
-// Models
-require_once "app/models/users.model.php";
-require_once "app/models/ideas.model.php";
-require_once "app/models/comments.model.php";
-
 define('APPLICATION', 'Share My Ideas');
 define('VERSION', '1.0.0');
 define('EXT', '.twig');
 
 use Slim\Slim;
 use Slim\Extras\Views\Twig as TwigView;
+use Strong\Strong;
 use Slim\Extras\Middleware\StrongAuth;
 
 $app = new Slim(array(
 	'view' => new TwigView,
 ));
 
+$dsn = sprintf('mysql:host=%s;dbname=%s', $db[$activeGroup]['hostname'], $db[$activeGroup]['database']);
 // Authentication
 $config = array(
     'provider' => 'PDO',
-    'dsn' => sprintf('mysql:host=%s;dbname=%s', $db[$activeGroup]['hostname'], $db[$activeGroup]['database']),
-    'dbuser' => $db[$activeGroup]['username'],
-    'dbpass' => $db[$activeGroup]['password'],
+    'pdo' => new PDO($dsn, $db[$activeGroup]['username'], $db[$activeGroup]['password']),
     'auth.type' => 'form',
     'login.url' => '/login',
     'security.urls' => array(

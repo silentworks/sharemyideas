@@ -3,6 +3,6 @@ sharemyideas.sublime-workspace
 sharemyideas.sublime-project
 vendor
 .sass-cache/
-composer.lock
 Thumbs.db
 config.php
+.idea

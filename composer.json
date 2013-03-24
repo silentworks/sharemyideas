@@ -1,36 +1,10 @@
 {
-	"repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "jamie/paris",
-                "version": "1.0.0",
-                "dist": {
-                    "url":  "https://github.com/j4mie/paris/zipball/master",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "jamie/idiorm",
-                "version": "1.0.0",
-                "dist": {
-                    "url":  "https://github.com/j4mie/idiorm/zipball/master",
-                    "type": "zip"
-                }
-            }
-        }
-    ],
     "require": {
-    	"slim/slim": "2.0.*"
-    	,"slim/extras": "dev-develop"
+    	"slim/slim": "2.1.*"
+    	,"slim/extras": "2.0.*"
     	,"slim/strong": "dev-master"
         ,"twig/twig": "1.8.*"
-        ,"jamie/paris": "1.0.*"
-        ,"jamie/idiorm": "1.0.*"
-        ,"respect/validation": "dev-develop"
-        ,"symfony/yaml": "v2.0.16"
+        ,"vlucas/valitron": "1.0.3"
+        ,"gabordemooij/redbean": "dev-master"
     }
 }

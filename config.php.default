@@ -1,4 +1,17 @@
 <?php
+/**
+ * Display option for ideas
+ * Used to allow vetting of ideas first
+ *
+ * 0 : Unapproved
+ * 1 : Approved
+ */
+define('DISPLAY_OPTION', 1);
+
+/**
+ * Validation Language Directory
+ */
+define('VALIDATION_LANG_PATH', dirname(__FILE__) . '/app/lang/');
 
 /**
  * Database Details
@@ -22,6 +35,7 @@ switch ($db[$activeGroup]['dbProvider']) {
 		break;
 }
 
-ORM::configure($providerString);
-ORM::configure('username', $db[$activeGroup]['username']);
-ORM::configure('password', $db[$activeGroup]['password']);
+// Alias RedBean_Facade to R
+class R extends RedBean_Facade{}
+
+R::setup($providerString, $db[$activeGroup]['username'], $db[$activeGroup]['password']);

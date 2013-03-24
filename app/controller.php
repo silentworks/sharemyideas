@@ -1,11 +1,12 @@
 <?php
+use Valitron\Validator;
 
 abstract class Controller extends Application {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->auth = Strong::getInstance();
+		$this->auth = \Strong\Strong::getInstance();
 
 		if ($this->auth->loggedIn()) {
 			$this->user = $this->auth->getUser();
@@ -25,15 +26,7 @@ abstract class Controller extends Application {
 
 	public function post($value = null)
 	{
-		$post = $this->app->request()->post($value);
-        if (empty($value)) {
-            $p = new stdClass;
-            foreach ($post as $pt => $value) {
-                $p->$pt = $value;
-            }
-            $post = $p;
-        }
-        return $post;
+		return $this->app->request()->post($value);
 	}
 
 	public function response($body)
@@ -51,5 +44,19 @@ abstract class Controller extends Application {
 		}
 		$this->app->view()->appendData(array('auth' => $this->auth));
 		$this->app->render($template . EXT, $data, $status);
+	}
+
+	protected function validator($data, $fields = array(), $lang = 'en')
+	{
+		return new Validator($data, $fields, $lang, VALIDATION_LANG_PATH);
+	}
+
+	protected function errorOutput(array $errors = array())
+	{
+		$outputErrors = array();
+		foreach ($errors as $key => $value) {
+			$outputErrors[] = ucfirst($key) . ' ' . $value[0];
+		}
+		return $outputErrors;
 	}
 }

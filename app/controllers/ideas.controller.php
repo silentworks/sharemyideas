@@ -4,13 +4,15 @@ class IdeasController extends Controller {
 	
 	public function index($order = null)
 	{
-		$data['ideas'] = Model::factory('Ideas')->order_by_asc('id')->find_many();
+		$data['ideas'] = R::find('ideas', ' display = :display ORDER BY id', array(
+                            ':display' => 1
+                        ));
 		$this->render('ideas/index', $data);
 	}
 
 	public function idea($id = null)
 	{
-		$data['idea'] = Model::factory('Ideas')->find_one($id);
+		$data['idea'] = R::findOne('ideas', ' id=?', array($id));
 		$data['singleView'] = true;
 		$this->render('ideas/single', $data);
 	}
@@ -21,13 +23,16 @@ class IdeasController extends Controller {
 
 		if ($req->isPost()) {
 			$p = $req->post();
-			$idea = Model::factory('Ideas')->create();
+			$idea = R::dispense('ideas');
 			$idea->title = $p['title'];
 			$idea->content = $p['idea'];
 			$idea->user_id = $this->user['id'];
 			$idea->ip_address = $req->getIp();
-			if ($idea->save()) {
-				$this->app->flash('info', sprintf('You have successfully saved %s', $idea->id()));
+            $idea->createdon = R::isoDateTime();
+            $idea->display = DISPLAY_OPTION;
+            $id = R::store($idea);
+			if ($id) {
+				$this->app->flash('info', sprintf('You have successfully saved %s', $id));
 				$this->redirect('home');
 			}
 			$this->app->flashNow('error', 'Your idea was not saved.');

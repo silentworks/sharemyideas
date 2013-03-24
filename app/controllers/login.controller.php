@@ -1,33 +1,21 @@
 <?php
-// Validation Library
-use Respect\Validation\Validator as v;	
 
 class LoginController extends Controller {
 
 	public function index()
 	{
 		if ($this->app->request()->isPost()) {
-            try {
-				v::alnum()
-					->noWhitespace()
-                	->length(4,22)
-                	->check($this->post('username'));
-
-                try {
-                	v::alnum()
-                	->length(3,11)
-                	->check($this->post('password'));
-
-                	if ($this->auth->login($this->post('username'), $this->post('password'))) {
-                        $this->app->flash('info', 'Your login was successfull');
-                        $this->redirect('home');
-                    }
-                } catch (\InvalidArgumentException $e) {
-                	$this->app->flashNow('error', $e->setName('Password')->getMainMessage());
+            $v = $this->validator($this->post());
+            $v->rule('required', array('username', 'password'));
+            $v->rule('length', 'username', 4, 22);
+            $v->rule('length', 'password', 3, 11);
+            if ($v->validate()) {
+                if ($this->auth->login($this->post('username'), $this->post('password'))) {
+                    $this->app->flash('info', 'Your login was successfull');
+                    $this->redirect('home');
                 }
-            } catch (\InvalidArgumentException $e) {
-            	$this->app->flashNow('error', $e->setName('Username')->getMainMessage());
             }
+            $this->app->flashNow('error', $this->errorOutput($v->errors()));
 		}
 		$this->render('login/index');
 	}
@@ -35,16 +23,24 @@ class LoginController extends Controller {
 	public function signup()
 	{
 		if ($this->app->request()->isPost()) {
-			$u = Model::factory('Users')->create();
-			$u->name = $this->post('name');
-			$u->email = $this->post('email');
-			$u->username = $this->post('username');
-			$u->password = $this->auth->getProvider()->hashPassword($this->post('password'));
-			$u->ip_address = $this->app->request()->getIp();
-			$u->save();
+            $v = $this->validator($this->post());
+            $v->rule('required', array('email', 'username', 'password'));
+            $v->rule('email', 'email');
+            $v->rule('length', 'username', 4, 22);
+            $v->rule('length', 'password', 3, 11);
+            if ($v->validate()) {
+    			$u = R::dispense('users');
+    			$u->name = $this->post('name');
+    			$u->email = $this->post('email');
+    			$u->username = $this->post('username');
+    			$u->password = $this->auth->getProvider()->hashPassword($this->post('password'));
+    			$u->ip_address = $this->app->request()->getIp();
+    			R::store($u);
 			
-			$this->app->flash('info', 'Your registration was successfull');
-			$this->redirect('home');
+                $this->app->flash('info', 'Your registration was successfull');
+                $this->redirect('home');
+            }
+            $this->app->flashNow('error', $this->errorOutput($v->errors()));
 		}
 		$this->render('login/signup');
 	}
