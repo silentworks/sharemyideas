@@ -4,7 +4,6 @@
 <div class="account-block six columns">
 	<p>Please login to start adding Ideas and Comments</p>
 	{% if flash.info %}<div class="alert-box success">{{ flash.info }}</div>{% endif %}
-	{% if flash.error %}<div class="alert-box alert">{{ flash.error }}</div>{% endif %}
 	<form action="{{ urlFor('signup') }}" method="post">
 		<div class="row">
 			<div class="twelve columns">

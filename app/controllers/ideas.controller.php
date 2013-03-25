@@ -22,20 +22,26 @@ class IdeasController extends Controller {
 		$req = $this->app->request();
 
 		if ($req->isPost()) {
-			$p = $req->post();
-			$idea = R::dispense('ideas');
-			$idea->title = $p['title'];
-			$idea->content = $p['idea'];
-			$idea->user_id = $this->user['id'];
-			$idea->ip_address = $req->getIp();
-            $idea->createdon = R::isoDateTime();
-            $idea->display = DISPLAY_OPTION;
-            $id = R::store($idea);
-			if ($id) {
-				$this->app->flash('info', sprintf('You have successfully saved %s', $id));
-				$this->redirect('home');
+			$v = $this->validator($this->post());
+			$v->rule('required', array('title', 'idea'));
+
+			if ($v->validate()) {
+				$p = $req->post();
+				$idea = R::dispense('ideas');
+				$idea->title = $p['title'];
+				$idea->content = $p['idea'];
+				$idea->user_id = $this->user['id'];
+				$idea->ip_address = $req->getIp();
+	            $idea->createdon = R::isoDateTime();
+	            $idea->display = DISPLAY_OPTION;
+	            $id = R::store($idea);
+				if ($id) {
+					$this->app->flash('info', sprintf('You have successfully saved %s', $id));
+					$this->redirect('home');
+				}
+				$this->app->flashNow('error', 'Your idea was not saved.');
 			}
-			$this->app->flashNow('error', 'Your idea was not saved.');
+			$this->app->flash('formError', $this->errorOutput($v->errors(), true));
 			$this->redirect('home');
 		}
 

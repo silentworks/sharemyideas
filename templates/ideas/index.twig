@@ -38,11 +38,13 @@
 			<p>
 				<label for="title">Title <em class="character">120 characters left</em></label>
 				<input type="text" name="title" value="" id="title" />
+				{% if flash.formError %}{{ flash.formError.title }}{% endif %}
 			</p>
 			
 			<p>
 				<label for="idea">Your idea <em class="character">320 characters left</em></label>
 				<textarea id="idea" name="idea" class="size"></textarea>
+				{% if flash.formError %}{{ flash.formError.idea }}{% endif %}
 			</p>
 
 			<div id="submit-holder"><input type="submit" value="Add Idea" class="button" /></div>

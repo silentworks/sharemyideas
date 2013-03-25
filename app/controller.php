@@ -51,11 +51,15 @@ abstract class Controller extends Application {
 		return new Validator($data, $fields, $lang, VALIDATION_LANG_PATH);
 	}
 
-	protected function errorOutput(array $errors = array())
+	protected function errorOutput(array $errors = array(), $single = false)
 	{
 		$outputErrors = array();
 		foreach ($errors as $key => $value) {
-			$outputErrors[] = ucfirst($key) . ' ' . $value[0];
+			if ($single) {
+				$outputErrors[$key] = ucfirst($key) . ' ' . $value[0];
+			} else {
+				$outputErrors[] = ucfirst($key) . ' ' . $value[0];
+			}
 		}
 		return $outputErrors;
 	}
