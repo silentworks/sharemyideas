@@ -4,7 +4,7 @@
 	{% if ideas != '' %}
 	<div class="sort-paginate">
 		<div class="sort">
-			Sort by: <a href="{{ urlFor('latest_ideas') }}">Latest</a> | <a href="{{ urlFor('mostrated_ideas') }}">Most Rated</a>
+			Sort by: <a href="{{ urlFor('ideas.latest') }}">Latest</a> | <a href="{{ urlFor('ideas.mostrated') }}">Most Rated</a>
 		</div>
 		<div class="pagination">
 			{{ pagination }}
@@ -24,17 +24,17 @@
 	{% if ideas != '' %}
 	<div class="sort-paginate">
 		<div class="sort">
-			Sort by: <a href="{{ urlFor('latest_ideas') }}">Latest</a> | <a href="{{ urlFor('mostrated_ideas') }}">Most Rated</a>
+            Sort by: <a href="{{ urlFor('ideas.latest') }}">Latest</a> | <a href="{{ urlFor('ideas.mostrated') }}">Most Rated</a>
 		</div>
 		<div class="pagination">
 			{{ pagination }}
 		</div>
 	</div>
 	{% endif %}
-	{% if auth.loggedIn() %}
+	{% if isLoggedIn %}
 	<div id="addyouridea">
 		<h3><span>Add your idea</span></h3>
-		<form action="{{ urlFor('idea_save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
+		<form action="{{ urlFor('idea.save') }}#addyouridea" method="post" accept-charset="utf-8" id="idea-form">
 			<p>
 				<label for="title">Title <em class="character">120 characters left</em></label>
 				<input type="text" name="title" value="" id="title" />

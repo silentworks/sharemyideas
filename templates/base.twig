@@ -14,7 +14,7 @@
 					<a href="/" id="logo"><span>Share my ideas</span></a>
 					<nav class="right">
 						<ul class="link-list">
-							{% if auth.loggedIn() %}
+							{% if isLoggedIn %}
 							<li><a href="{{ urlFor('profile') }}">Account</a></li>
 							<li><a href="{{ urlFor('logout') }}">Logout</a></li>
 							{% else %}

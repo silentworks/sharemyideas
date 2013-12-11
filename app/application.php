@@ -3,7 +3,7 @@
 class Application {
 	public $app;
 
-	public function __construct(Slim\Slim $slim = null)
+	public function __construct(\Slim\Slim $slim = null)
 	{
 		$this->app = !empty($slim) ? $slim : \Slim\Slim::getInstance();
 	}

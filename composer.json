@@ -1,10 +1,18 @@
 {
     "require": {
-    	"slim/slim": "2.1.*"
-    	,"slim/extras": "2.0.*"
-    	,"slim/strong": "dev-master"
-        ,"twig/twig": "1.8.*"
-        ,"vlucas/valitron": "1.0.3"
-        ,"gabordemooij/redbean": "dev-master"
+    	"slim/slim": "2.4.*",
+        "slim/views": "0.1.1",
+        "illuminate/database": "v4.0.5",
+    	"cartalyst/sentry": "2.0.*",
+        "ircmaxell/password-compat": "1.0.*",
+        "twig/twig": "1.15.*",
+        "vlucas/valitron": "1.0.3"
+    },
+    "require-dev": {
+        "davedevelopment/phpmig": "0.5.*@dev",
+        "pimple/pimple": "1.*"
+    },
+    "config": {
+        "bin-dir": "bin/"
     }
 }

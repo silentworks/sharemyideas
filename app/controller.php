@@ -1,16 +1,18 @@
 <?php
 use Valitron\Validator;
 
-abstract class Controller extends Application {
+abstract class Controller extends Application
+{
+    /* @var \Cartalyst\Sentry\Sentry $auth */
+    protected $auth;
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->auth = \Strong\Strong::getInstance();
 
-		if ($this->auth->loggedIn()) {
-			$this->user = $this->auth->getUser();
-		}
+        $this->user = Sentry::getUser();
+
+        $this->isLoggedIn = Sentry::check();
 	}
 
 	public function redirect($name, $routeName = true)
@@ -33,7 +35,6 @@ abstract class Controller extends Application {
 	{
 		$response = $this->app->response();
 		$response['Content-Type'] = 'application/json';
-		$response['X-Powered-By'] = APPLICATION . ' ' . VERSION;
 		$response->body(json_encode(array($body)));
 	}
 
@@ -42,7 +43,10 @@ abstract class Controller extends Application {
 		if ($len = strpos(strrev($template), '.')) {
 			$template = substr( $template, 0, -($len+1) );
 		}
-		$this->app->view()->appendData(array('auth' => $this->auth));
+		$this->app->view()->appendData(array(
+            'auth' => $this->auth,
+            'isLoggedIn' => $this->isLoggedIn
+        ));
 		$this->app->render($template . EXT, $data, $status);
 	}
 
@@ -50,6 +54,16 @@ abstract class Controller extends Application {
 	{
 		return new Validator($data, $fields, $lang, VALIDATION_LANG_PATH);
 	}
+
+    public function successFlash($msg = '')
+    {
+        $this->app->flash('info', $msg);
+    }
+
+    public function errorFlash($msg = '')
+    {
+        $this->app->flash('error', $msg);
+    }
 
 	protected function errorOutput(array $errors = array(), $single = false)
 	{
