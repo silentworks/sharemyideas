@@ -5,7 +5,7 @@
         "illuminate/database": "v4.0.5",
     	"cartalyst/sentry": "2.0.*",
         "ircmaxell/password-compat": "1.0.*",
-        "twig/twig": "1.15.*",
+        "twig/twig": "1.44.*",
         "vlucas/valitron": "1.0.3"
     },
     "require-dev": {
